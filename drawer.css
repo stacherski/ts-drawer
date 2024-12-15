@@ -1,0 +1,97 @@
+body[freeze]
+{
+    pointer-events: none;
+}
+
+main
+{
+    margin-block: auto;
+    margin-inline: auto;
+    width: clamp(300px,80vw, 500px);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ts-drawer
+{
+    position: fixed;
+    z-index: 5000;
+    transition: all .4s ease-in-out;
+    background-color: #fff;
+    padding-inline: 2rem;
+    padding-block: 2rem;
+}
+
+.ts-drawer.top
+{
+    top: -100%;
+    left: 0;
+    right: 0;
+}
+
+.ts-drawer.top[data-state="open"]
+{
+    top: 0;
+}
+
+.ts-drawer.bottom
+{
+    bottom: -100%;
+    left: 0;
+    right: 0;
+}
+
+.ts-drawer.bottom[data-state="open"]
+{
+    bottom: 0;
+}
+
+.ts-drawer.left
+{
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    display: inline-block;
+    max-width: 50vw;
+}
+
+.ts-drawer.left[data-state="open"]
+{
+    left: 0;
+}
+
+.ts-drawer.right
+{
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    max-width: 50vw;
+}
+
+.ts-drawer.right[data-state="open"]
+{
+    right: 0;
+}
+
+.ts-overlay
+{
+    position: fixed;
+    z-index: 4999;
+    background-color: #000;
+    opacity: 0;
+    inset: 0;
+    transition: opacity .3s ease-in-out;
+    cursor: pointer;
+}
+
+.ts-overlay[data-state="open"]
+{
+    opacity: .5;
+}
+
+.ts-drawer button:FOCUS
+{
+    outline: 2px dotted #008;
+}
